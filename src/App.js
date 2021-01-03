@@ -46,6 +46,35 @@ class App extends Component {
 
   /**
    * @author Ryan
+   * @description Component 최초 랜더링 시 데이터 불러와 적용
+   */
+  componentDidMount(){
+    try {
+      const items = localStorage.getItem("item")
+      
+      // items가 있다면 itemList state 업데이트
+      if(items){
+        this.setState({itemList: JSON.parse(items)})
+      }     
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  /**
+   * @author Ryan
+   * @description 최종 state 값 localStorage 저장
+   */  
+  componentDidUpdate(nextProps, nextState, snapshot){
+
+    //기존 state 값과 변경된 state 값이 다르면 변경 state 값 저장
+    if(nextState.itemList.length !== this.state.itemList.length){
+      localStorage.setItem("item", JSON.stringify(this.state.itemList))
+    }
+  }
+
+  /**
+   * @author Ryan
    * @descirption Input 입력 값을 받는 함수
    */
   contentChange = (e) =>{
@@ -63,7 +92,7 @@ class App extends Component {
 
     this.setState( state => {
       return {
-       itemList: state.itemList.concat(state.contents) // 배열요 데이터를 추가한다.
+       itemList: state.itemList.concat(state.contents) // 배열에 데이터를 추가한다.
       }
     })
   }
