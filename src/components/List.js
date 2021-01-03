@@ -34,7 +34,11 @@ class List extends Component {
             <Card style={style.LeftContainer}>
                 <Card.Header>메모 목록</Card.Header>
                 <ListGroup style={style.ListContainer}>
-                    <ListGroup.Item style={style.ListItmes}>아이템 1</ListGroup.Item>
+                    {this.props.itemList.map(data => 
+                        <ListGroup.Item key={data} style={style.ListItmes} onClick={e => this.props.removeItem(data)}>
+                            {data}
+                        </ListGroup.Item>
+                    )}
                 </ListGroup>
             </Card>
         );

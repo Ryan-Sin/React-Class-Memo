@@ -34,9 +34,11 @@ class Input extends Component {
                     placeholder="메모 내용"
                     aria-label="메모 내용"
                     aria-describedby="basic-addon2"
+                    name="contents"
+                    onChange={e => this.props.contentChange(e)}
                 />
                 <InputGroup.Append>
-                    <Button variant="success" size="sm" style={style.Button}>등록</Button>
+                    <Button variant="success" size="sm" style={style.Button} onClick={e => this.props.addItem(e)}>등록</Button>
                 </InputGroup.Append>
                 </InputGroup>
                 </Card.Body>
