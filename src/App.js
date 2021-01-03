@@ -28,21 +28,6 @@ const style = {
     height: "100%"
   },
 
-  LeftContainer: {
-    width: "100%",
-    margin: "0 5px 0 0",
-    fontSize: "14px",
-    textAlign: "center",
-    border: "1px solid gray",
-  },
-
-  RightContainer: {
-    width: "100%",
-    margin: "0 0 0 5px",
-    fontSize: "14px",
-    textAlign: "center",
-    border: "1px solid gray",
-  }
 }
 
 
@@ -55,10 +40,7 @@ class App extends Component {
             <div style={style.BodyContainer}>
               <h1 style={style.Title}>React Class Memo Project</h1>
                 <div style={style.Body}>
-
-                  <div style={style.LeftContainer}>
                     <List/>
-                  </div>
                     <Input/>
                 </div>
             </div>
